@@ -4,17 +4,11 @@ const config = defineConfig({
   theme: {
     tokens: {
       colors: {
-        orange: {
-          100: { value: "#e6f2ff" },
-          400: { value: "#99caff" },
-          500: { value: "#001a33" },
+        primary: {
+          100: { value: "#fef5e6" },
+          400: { value: "#FF9501" },
+          500: { value: "#ff6b01"},
         },
-      },
-    },
-    semanticTokens: {
-      colors: {
-        "fg.subtle": { value: "{colors.orange.400}" },
-        "focus.ring": { value: "{colors.orange.500}" },
       },
     },
   },
@@ -25,7 +19,7 @@ const config = defineConfig({
     },
     body: {
       bg: "white",
-      color: "black",
+      color: "#2d2d2e",
       minHeight: "100vh",
       margin: 0,
       fontStyle: "Raleway, system-ui, sans-serif",
