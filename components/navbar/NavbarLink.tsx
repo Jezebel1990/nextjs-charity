@@ -4,18 +4,18 @@ import { Text } from "@chakra-ui/react";
 export interface NavbarLinkProps {
   href: string;
   label: string;
-  onClick?: () => void; 
 }
 
-const NavbarLink: React.FC<NavbarLinkProps> = ({ href, label, onClick }) => {
+const NavbarLink: React.FC<NavbarLinkProps> = (props) => {
+  const {href, label} = props;
+
   return (
     <Link href={href} passHref>
       <Text
-        as="a"
+        as="span"
         cursor="pointer"
         fontWeight={600}
-        onClick={onClick} // Usar a função onClick aqui
-        _hover={{ textDecoration: "underline", color: "gray.600" }}
+        _hover={{ textDecoration: "initial", color: "yellow.200" }}
         transition="color 0.2s ease-in-out"
       >
         {label}
