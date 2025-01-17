@@ -1,30 +1,26 @@
-import { defineConfig, createSystem, defaultConfig } from "@chakra-ui/react";
+import { extendTheme } from "@chakra-ui/react";
 
-const config = defineConfig({
-  theme: {
-    tokens: {
-      colors: {
-        primary: {
-          100: { value: "#fef5e6" },
-          400: { value: "#FF9501" },
-          500: { value: "#ff6b01"},
-        },
+const theme = extendTheme({
+  styles: {
+    global: {
+      body: {
+        minHeight: "100vh",
+        backgroundColor: "white",
+        color: "black",
+        margin: 0,
       },
     },
   },
-  globalCss: {
-    "*::placeholder": {
-      opacity: 1,
-      color: "{fg.subtle}",
-    },
-    body: {
-      bg: "white",
-      color: "#2d2d2e",
-      minHeight: "100vh",
-      margin: 0,
-      fontStyle: "Raleway, system-ui, sans-serif",
-    },
+  fonts: {
+    body: "Raleway, system-ui, sans-serif",
   },
-});
-
-export const system = createSystem(defaultConfig, config);
+  colors: {
+    primary: {
+      100: "#fef5e6",
+      400: "#FF9501",
+      500: "#ff6b01",
+    },
+  black: "#363663",
+  },
+ });
+export default theme;

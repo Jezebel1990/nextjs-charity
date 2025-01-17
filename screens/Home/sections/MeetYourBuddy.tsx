@@ -1,7 +1,7 @@
-import ButtonNew from "@/components/button/ButtonNew";
+
 import { MeetColumn } from "@/components/meet/MeetColumn";
 import Section from "@/components/section/Section";
-import { Heading, Stack, Box, Grid } from "@chakra-ui/react";
+import { Heading, Stack, Box, Grid, Button } from "@chakra-ui/react";
 
 const MeetYourBuddy:React.FC = () => {
     return (
@@ -9,7 +9,7 @@ const MeetYourBuddy:React.FC = () => {
         <Stack position="relative" textAlign="center">
          <Heading fontSize="5xl" fontWeight={700}  lineHeight={1.3}>
           <Box>Conheça o seu próximo</Box>
-          <Box color="primary.400">amigo</Box>
+          <Box color="#FF9501">amigo</Box>
          </Heading>
          <Box position="relative" top="-32">
         <Grid
@@ -19,7 +19,7 @@ const MeetYourBuddy:React.FC = () => {
          pt="32"
          gap={4}
         >
-       <MeetColumn  end={3} position={["0", "-60px"]} start={0}/>
+       <MeetColumn end={3} position={["0", "-60px"]} start={0}/>
        <MeetColumn end={6} position={["100px", "0"]} start={3} />
        <MeetColumn end={9} position={["0", "100px"]} start={6} />
        <MeetColumn end={12} position="150px" start={9} />
@@ -38,7 +38,7 @@ const MeetYourBuddy:React.FC = () => {
     w="full"
   />
 
- <ButtonNew />
+<Button size="lg" colorScheme='orange'>Encontre seu novo amigo</Button>
  </Stack>
          </Box>
         </Stack>

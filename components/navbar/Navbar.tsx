@@ -1,17 +1,8 @@
-import { Box, Container, Flex, Image, Stack, Button } from "@chakra-ui/react";
+import { Box, Container, Flex, Image, Stack, useDisclosure, Icon, Drawer, DrawerBody, DrawerContent, DrawerOverlay, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import NavbarLink, { NavbarLinkProps } from "./NavbarLink";
-import { FaBars } from "react-icons/fa";
-import {
-  DrawerBackdrop,
-  DrawerBody,
-  DrawerCloseTrigger,
-  DrawerContent,
-  DrawerHeader,
-  DrawerRoot,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
-import { useState } from "react";
+import { FaBars, FaWindowClose } from "react-icons/fa";
+
 
 const NAVBAR_LINKS: NavbarLinkProps[] = [
   {
@@ -33,7 +24,7 @@ const NAVBAR_LINKS: NavbarLinkProps[] = [
 ];
 
 const Navbar: React.FC = () => {
-  const [open, setOpen] = useState(false);
+  const {isOpen, onOpen, onClose} = useDisclosure();
 
   return (
     <Box
@@ -58,63 +49,51 @@ const Navbar: React.FC = () => {
             />
           </Link>
 
-          {/* Links para telas grandes */}
-          <Flex
-            display={{ base: "none", lg: "flex" }}
+          <Stack
+            direction="row"
+            display={{base: "none", lg: "flex"}}
             fontSize="lg"
             fontWeight={700}
-            gap={12}
+            spacing={12}
           >
+          
             {NAVBAR_LINKS.map((link, index) => (
               <NavbarLink key={index} href={link.href} label={link.label} />
             ))}
-          </Flex>
+       </Stack>
 
-          {/* Drawer para telas pequenas */}
-          <Box display={{ base: "block", lg: "none" }}>
-            <DrawerRoot open={open} onOpenChange={(e) => setOpen(e.open)}>
-              {/* Botão de abrir o Drawer */}
-              <DrawerTrigger asChild>
-                <Button
-                 bg={"#ECA324"}
-                 border={"#ECA324"}
-                  variant="outline"
-                  size="xs"
-                  aria-label="Abrir menu"
-                  onClick={() => setOpen(true)}
-                >
-                  <FaBars 
-                  color="#F7F6F2"
-                  />
-                </Button>
-              </DrawerTrigger>
-
-              {/* Conteúdo do Drawer */}
-              <DrawerBackdrop />
-              <DrawerContent >
-                <DrawerHeader>
-                  <DrawerCloseTrigger asChild>
-                    <Button size="xs" variant="ghost" onClick={() => setOpen(false)}>
-                      Fechar
-                    </Button>
-                  </DrawerCloseTrigger>
-                </DrawerHeader>
-                <DrawerBody>
-                  <Stack gap={4} color={"#2d2d2e"}>
-                    {NAVBAR_LINKS.map((link, index) => (
-                      <NavbarLink
-                        key={index}
-                        href={link.href}
-                        label={link.label}
-                        onClick={() => setOpen(false)} 
-                      />
-                    ))}
-                  </Stack>
-                </DrawerBody>
-              </DrawerContent>
-            </DrawerRoot>
-          </Box>
+       <Icon
+            _hover={{cursor: "pointer"}}
+            as={FaBars}
+            display={{base: "flex", lg: "none"}}
+            h={6}
+            w={6}
+            onClick={onOpen}
+          />
         </Flex>
+        <Drawer isOpen={isOpen} placement="top" onClose={onClose}>
+          <DrawerOverlay p={0} />
+          <DrawerContent>
+            <DrawerBody>
+              <VStack mb={10} mt={4}>
+                <Icon
+                  _hover={{cursor: "pointer"}}
+                  as={FaWindowClose}
+                  h={6}
+                  position="absolute"
+                  right={4}
+                  w={6}
+                  onClick={onClose}
+                />
+                <Stack align="center" pt={10} spacing={10}>
+                  {NAVBAR_LINKS.map((link, index) => (
+                    <NavbarLink key={index} href={link.href} label={link.label} />
+                  ))}
+                </Stack>
+              </VStack>
+            </DrawerBody>
+          </DrawerContent>
+        </Drawer>
       </Container>
     </Box>
   );

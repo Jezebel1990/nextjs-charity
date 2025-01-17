@@ -1,6 +1,5 @@
-import ButtonNew from "@/components/button/ButtonNew";
 import Section from "@/components/section/Section";
-import { Box, Stack, Text} from "@chakra-ui/react";
+import { Box, Button, Stack, Text} from "@chakra-ui/react";
 
 
 interface Props {}
@@ -8,7 +7,8 @@ interface Props {}
 const Hero:React.FC<Props> = () => {
     return (
         <Section backgroundIsImage backgroundColor="white" dividerColor="white" >
-        <Stack align={"flex-start"} marginLeft={[10, 20, 30]}  maxWidth={489} py={100} gap={2}>
+        <Stack align={"flex-start"} marginLeft={[10, 20, 30]}  
+        maxWidth={489} py={100} spacing={2}>
         <Text
           color={"white"}
           fontSize={{base: "xl", md: "lg"}}
@@ -18,14 +18,14 @@ const Hero:React.FC<Props> = () => {
         >
           Adote seu pet
         </Text>
-        <Stack direction={"row"} left="-20px" position="relative" gap={2}>
+        <Stack direction={"row"} left="-20px" position="relative" spacing={2}>
         <Box 
         _before={{
             content: "''",
             display: "block",
-            width: "10px",
+            width: "12px",
             height: "full",
-            background: "primary.400",
+            background: "#FF9501",
         }}
         />
        <Text
@@ -48,7 +48,12 @@ const Hero:React.FC<Props> = () => {
     Buscamos  combater o abandono e os maus-tratos aos animais, promovendo o respeito e o amor.
      </Text>
    </Stack>
-<ButtonNew />
+
+   <Stack direction={"row"} marginLeft={[10, 20, 30]} paddingTop={50}>
+        <Button paddingX={12} size="lg" colorScheme='orange'>
+          Encontre seu novo amigo
+        </Button>
+      </Stack>
 </Section>
     );
 };

@@ -33,13 +33,15 @@ const Section:React.FC<SectionProps> = (props) => {
      backgroundSize={"cover"}
      height="100%"
      width="100%"
+    
  >
 <Box
    bgGradient={hasGradientEffect ? "linear(to-r, blackAlpha.600, transparent)" : "none"}
    paddingX={{base: 4, md: 8}}
    paddingY={[20, 30, 40, 60, 150]}
+   
 >
-    <Container  maxWidth="container.xl">
+<Container  maxWidth="container.xl">
      {children}
      {hasDivider && <SectionDivider backgroundColor={dividerColor}/>}
     </Container>
