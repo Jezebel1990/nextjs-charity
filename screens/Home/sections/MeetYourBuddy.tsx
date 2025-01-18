@@ -5,10 +5,10 @@ import { Heading, Stack, Box, Grid, Button } from "@chakra-ui/react";
 
 const MeetYourBuddy:React.FC = () => {
     return (
-       <Section hasDivider backgroundColor="white" dividerColor="#FFEDAA">
+       <Section hasDivider backgroundColor="white" dividerColor="#FFEFB6">
         <Stack position="relative" textAlign="center">
          <Heading fontSize="5xl" fontWeight={700}  lineHeight={1.3}>
-          <Box>Conheça o seu próximo</Box>
+          <Box color="#2F2F40">Conheça o seu próximo</Box>
           <Box color="#FF9501">amigo</Box>
          </Heading>
          <Box position="relative" top="-32">
