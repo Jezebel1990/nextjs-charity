@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import Hero from "@/screens/Home/sections/Hero";
 import MeetYourBuddy from "@/screens/Home/sections/MeetYourBuddy";
 import Process from "@/screens/Home/sections/Process";
+import Transit from "@/screens/Home/sections/Transit";
 import type {NextPage} from "next";
 
 const Home: NextPage = () => {
@@ -17,6 +18,7 @@ const Home: NextPage = () => {
     <Hero />
     <MeetYourBuddy />
     <Process />
+    <Transit />
     </Layout>
   );
 };

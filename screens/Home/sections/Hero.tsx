@@ -50,7 +50,7 @@ const Hero:React.FC<Props> = () => {
    </Stack>
 
    <Stack direction={"row"} marginLeft={[10, 20, 30]} paddingTop={50}>
-        <Button paddingX={12} size="lg" colorScheme='orange'>
+        <Button paddingX={12} size="lg" colorScheme='primary'  _hover={{ bg: "orange.500" }}>
           Encontre seu novo amigo
         </Button>
       </Stack>

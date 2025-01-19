@@ -38,7 +38,7 @@ const MeetYourBuddy:React.FC = () => {
     w="full"
   />
 
-<Button size="lg" colorScheme='orange'>Encontre seu novo amigo</Button>
+<Button size="lg" colorScheme='primary'  _hover={{ bg: "orange.500" }}>Encontre seu novo amigo</Button>
  </Stack>
          </Box>
         </Stack>

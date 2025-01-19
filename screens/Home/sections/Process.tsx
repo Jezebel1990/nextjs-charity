@@ -71,7 +71,6 @@ const Process: React.FC = () => {
            fontSize={["48px", null, null, "54px"]}
            fontWeight={900}
            lineHeight={1.125}
-           color={"#2F2F40"}
            pt={6}
           >
           Narizes Frios e
@@ -81,7 +80,7 @@ const Process: React.FC = () => {
           </Stack>
           <Stack alignItems="center" justifyContent="center">
            <Text 
-           fontSize="20px" fontWeight="semibold" color="#2F2F40" py={8}
+           fontSize="20px" fontWeight="semibold" py={8}
            >
            Ao adotar, você assume uma responsabilidade significativa, exigindo comprometimento e preparo. Por isso, é essencial receber o treinamento adequado. 
            </Text>

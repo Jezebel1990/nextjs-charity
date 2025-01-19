@@ -20,7 +20,7 @@ const theme = extendTheme({
       400: "#FF9501",
       500: "#ff6b01",
     },
-  black: "#363663",
+  black: "#2F2F40",
   },
  });
 export default theme;
