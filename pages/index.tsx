@@ -1,4 +1,5 @@
 import Layout from "@/components/layout/Layout";
+import Family from "@/screens/Home/sections/Family";
 import Hero from "@/screens/Home/sections/Hero";
 import History from "@/screens/Home/sections/History";
 import MeetYourBuddy from "@/screens/Home/sections/MeetYourBuddy";
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
     <Process />
     <Transit />
     <History />
+    <Family />
     </Layout>
   );
 };
