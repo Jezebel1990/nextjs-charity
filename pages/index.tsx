@@ -26,7 +26,6 @@ const Home: NextPage = () => {
     <History />
     <Family />
     <LifeStories />
-    <Footer />
     </Layout>
   );
 };
