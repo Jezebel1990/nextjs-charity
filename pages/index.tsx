@@ -1,4 +1,3 @@
-import Footer from "@/components/footer/Footer";
 import Layout from "@/components/layout/Layout";
 import Family from "@/screens/Home/sections/Family";
 import Hero from "@/screens/Home/sections/Hero";

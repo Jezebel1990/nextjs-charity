@@ -1,9 +1,4 @@
-
-interface FooterDividerProps {}
-
-const FooterDivider: React.FC<FooterDividerProps> = (props) => {
-  const {} = props;
-
+const FooterDivider: React.FC = () => {
   return (
     <svg
       fill="#E59813"
