@@ -18,8 +18,8 @@ const NAVBAR_LINKS: NavbarLinkProps[] = [
     label: "Faça sua doação",
   },
   {
-    href: "/contacts",
-    label: "Contatos",
+    href: "/contact",
+    label: "Contato",
   },
 ];
 

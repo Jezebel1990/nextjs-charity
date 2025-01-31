@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
     
     <FooterLink href="/">Encontre seu pet</FooterLink>
     <FooterLink href="/">Sobre nós</FooterLink>
-    <FooterLink href="/">Contatos</FooterLink>
+    <FooterLink href="/">Contato</FooterLink>
     <FooterLink href="/">Faça sua doação</FooterLink>
     </Stack>
 <Stack direction="row" gap="10px" justifyContent="end" width="200px">
