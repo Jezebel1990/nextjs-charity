@@ -70,12 +70,12 @@ const Contact: NextPage = () => {
         duration: 2000,
         position: "bottom",
       });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Erro ao enviar o formulário:", error);
       setState((prev) => ({
         ...prev,
         isLoading: false,
-        error: error.message || "Erro ao enviar a mensagem.",
+        error:  "Erro ao enviar a mensagem.",
       }));
     }
   };
