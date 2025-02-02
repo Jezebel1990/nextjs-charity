@@ -48,17 +48,19 @@ export const LifeStories: React.FC = () => {
             xl: "container.xl",
           }}
         >
-          <Carousel
-            responsive={responsive}
-            infinite
-            autoPlay={false}
-            showDots
-            keyBoardControl
-            containerClass="carousel-container"
-            dotListClass="custom-dots"
-          >
+<Carousel
+  responsive={responsive}
+  infinite
+  autoPlay
+  autoPlaySpeed={3000} // Transição a cada 3s
+  showDots
+  keyBoardControl
+  removeArrowOnDeviceType={["tablet", "mobile"]}
+  containerClass="carousel-container"
+  dotListClass="custom-dots"
+>
             {sliderImages.map((slide, idx) => (
-              <div key={idx} style={{ padding: "20px"}}>
+              <div key={idx} style={{ padding: "20px" }}>
                 {slide.image ? (
                   <Image
                     alt="Slide Photo"
@@ -69,13 +71,8 @@ export const LifeStories: React.FC = () => {
                   />
                 ) : (
                   <Flex alignItems="center" height="100%" justify="center">
-                    <Stack direction="column" >
-                      <Text fontSize="4xl"
-                      fontWeight={800}
-                      marginBottom={2}
-                      textAlign="center"
-                      color="primary.500"
-                      >
+                    <Stack direction="column">
+                      <Text fontSize="4xl" fontWeight={800} marginBottom={2} textAlign="center" color="primary.500">
                         {slide.title}
                       </Text>
                       <Text>{slide.text}</Text>
@@ -88,13 +85,8 @@ export const LifeStories: React.FC = () => {
         </Stack>
 
         <Stack direction="row" paddingTop={{ base: 10, md: 50 }}>
-          <Link
-            isExternal
-            _hover={{ textDecoration: "none" }}
-            href=""
-            rel="noreferrer"
-          >
-            <Button gap={3} size="lg" colorScheme='primary'  _hover={{ bg: "orange.500" }}>
+          <Link isExternal _hover={{ textDecoration: "none" }} href="" rel="noreferrer">
+            <Button gap={3} size="lg" colorScheme="primary" _hover={{ bg: "orange.500" }}>
               <FaInstagram size={20} />
               Siga-nos no Instagram
             </Button>

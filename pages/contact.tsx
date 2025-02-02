@@ -98,7 +98,7 @@ const Contact: NextPage = () => {
             <Text fontSize="4xl" fontWeight={800} textAlign="center" color="primary.500">
               em contato.
             </Text>
-            <Image src="https://i.imgur.com/5U6knfi.png" height="300px" alt="adorable dog" />
+            <Image src="https://i.imgur.com/5U6knfi.png" loading="lazy" height="300px" alt="cahorro adorável" />
           </VStack>
         </Container>
 

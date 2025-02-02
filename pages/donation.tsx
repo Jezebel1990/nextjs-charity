@@ -101,7 +101,7 @@ const Donation: NextPage = () => {
         <Container maxW="400px">
           <VStack spacing={4} p={6}>
             {showImage ? (
-              <Image src="https://i.imgur.com/vyoUfE0.png" alt="Imagem de Doação" height="380px"/>
+              <Image src="https://i.imgur.com/vyoUfE0.png" loading="lazy" alt="Dois cachorros famintos" height="380px"/>
             ) : (
               <>
                 {qrCode && (

@@ -12,7 +12,7 @@ const About: NextPage = () => {
         </Text>
 
         <HStack align="start" spacing={4} width="full">
-          <Image src="https://i.imgur.com/RoMzIcr.png" boxSize="400px"   objectFit="contain" alt="" />
+          <Image src="https://i.imgur.com/RoMzIcr.png" boxSize="400px" loading="lazy" objectFit="contain" alt="cachorro em pé" />
         
           <UnorderedList styleType="'🦴 '" spacing={3} fontSize="lg">
           <Text as="b" fontSize="xl"> NOSSOS OBJETIVOS</Text>
