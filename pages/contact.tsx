@@ -1,8 +1,8 @@
 import Section from "@/components/section/Section";
+import MapImage from "@/components/mapImage/MapImage"; 
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import {
-  HStack,
   VStack,
   Text,
   Textarea,
@@ -82,112 +82,123 @@ const Contact: NextPage = () => {
 
   return (
     <Section backgroundColor="white" hasDivider={false}>
-      <HStack spacing={2} align="start">
-        {/* Primeira coluna */}
-        <Container>
-          <VStack align="center">
-            <Text fontSize="4xl" fontWeight={800} textAlign="center" color="primary.500">
-              Mande sua
+    <Flex direction={{ base: "column", md: "row" }} align="start">
+      {/* Primeira coluna */}
+      <Container >
+        <VStack align="center">
+          <Text fontSize="4xl" fontWeight={800} textAlign="center" color="primary.500">
+            Mande sua mensagem e
+          </Text>
+  
+          <Text fontSize="4xl" fontWeight={800} textAlign="center" color="primary.500">
+            entraremos em contato.
+          </Text>
+  
+          <div style={{ position: "relative", width: "100%", marginTop: "260px" }}>
+            <Image
+              src="https://i.imgur.com/5U6knfi.png"
+              alt="cachorro adorável"
+              style={{
+                position: "absolute",
+                bottom: "210px",
+                left: "50%",
+                transform: "translateX(-50%) translateY(6%)",
+                zIndex: 10,
+              }}
+              loading="lazy"
+              height="300px"
+            />
+            <MapImage />
+          </div>
+        </VStack>
+      </Container>
+  
+      {/* Segunda coluna */}
+      <Container maxW="550px" mt={6}>
+        <form onSubmit={onSubmit}>
+          <FormControl isRequired isInvalid={touched.name && !values.name} mb={3}>
+            <FormLabel>Nome</FormLabel>
+            <Input
+              type="text"
+              name="name"
+              placeholder="Fulano da Silva"
+              backgroundColor="#f5f5f5"
+              errorBorderColor="red.300"
+              value={values.name}
+              onChange={handleChange}
+              onBlur={onBlur}
+            />
+            <FormErrorMessage>Obrigatório</FormErrorMessage>
+          </FormControl>
+  
+          <FormControl isRequired isInvalid={touched.email && !values.email} mb={3}>
+            <FormLabel>Email</FormLabel>
+            <Input
+              type="email"
+              name="email"
+              placeholder="fulano@gmail.com"
+              backgroundColor="#f5f5f5"
+              errorBorderColor="red.300"
+              value={values.email}
+              onChange={handleChange}
+              onBlur={onBlur}
+            />
+            <FormErrorMessage>Obrigatório</FormErrorMessage>
+          </FormControl>
+  
+          <FormControl isRequired isInvalid={touched.subject && !values.subject} mb={3}>
+            <FormLabel>Assunto</FormLabel>
+            <Input
+              type="text"
+              name="subject"
+              placeholder="Ex: Dúvida sobre serviços"
+              backgroundColor="#f5f5f5"
+              errorBorderColor="red.300"
+              value={values.subject}
+              onChange={handleChange}
+              onBlur={onBlur}
+            />
+            <FormErrorMessage>Obrigatório</FormErrorMessage>
+          </FormControl>
+  
+          <FormControl isRequired isInvalid={touched.message && !values.message} mb={3}>
+            <FormLabel>Mensagem</FormLabel>
+            <Textarea
+              name="message"
+              placeholder="Escreva sua mensagem aqui..."
+              backgroundColor="#f5f5f5"
+              rows={4}
+              errorBorderColor="red.300"
+              value={values.message}
+              onChange={handleChange}
+              onBlur={onBlur}
+            />
+            <FormErrorMessage>Obrigatório</FormErrorMessage>
+          </FormControl>
+  
+          {error && (
+            <Text color="red.500" mt={2}>
+              {error}
             </Text>
-            <Text fontSize="4xl" fontWeight={800} textAlign="center" color="primary.500">
-              mensagem e
-            </Text>
-            <Text fontSize="4xl" fontWeight={800} textAlign="center" color="primary.500">
-              entraremos
-            </Text>
-            <Text fontSize="4xl" fontWeight={800} textAlign="center" color="primary.500">
-              em contato.
-            </Text>
-            <Image src="https://i.imgur.com/5U6knfi.png" loading="lazy" height="300px" alt="cahorro adorável" />
-          </VStack>
-        </Container>
-
-        {/* Segunda coluna */}
-        <Container maxW="550px">
-          <form onSubmit={onSubmit}>
-            <FormControl isRequired isInvalid={touched.name && !values.name} mb={3}>
-              <FormLabel>Nome</FormLabel>
-              <Input
-                type="text"
-                name="name"
-                placeholder="Fulano da Silva"
-                backgroundColor="#f5f5f5"
-                errorBorderColor="red.300"
-                value={values.name}
-                onChange={handleChange}
-                onBlur={onBlur}
-              />
-              <FormErrorMessage>Obrigatório</FormErrorMessage>
-            </FormControl>
-
-            <FormControl isRequired isInvalid={touched.email && !values.email} mb={3}>
-              <FormLabel>Email</FormLabel>
-              <Input
-                type="email"
-                name="email"
-                placeholder="fulano@gmail.com"
-                backgroundColor="#f5f5f5"
-                errorBorderColor="red.300"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={onBlur}
-              />
-              <FormErrorMessage>Obrigatório</FormErrorMessage>
-            </FormControl>
-
-            <FormControl isRequired isInvalid={touched.subject && !values.subject} mb={3}>
-              <FormLabel>Assunto</FormLabel>
-              <Input
-                type="text"
-                name="subject"
-                placeholder="Ex: Dúvida sobre serviços"
-                backgroundColor="#f5f5f5"
-                errorBorderColor="red.300"
-                value={values.subject}
-                onChange={handleChange}
-                onBlur={onBlur}
-              />
-              <FormErrorMessage>Obrigatório</FormErrorMessage>
-            </FormControl>
-
-            <FormControl isRequired isInvalid={touched.message && !values.message} mb={3}>
-              <FormLabel>Mensagem</FormLabel>
-              <Textarea
-                name="message"
-                placeholder="Escreva sua mensagem aqui..."
-                backgroundColor="#f5f5f5"
-                rows={4}
-                errorBorderColor="red.300"
-                value={values.message}
-                onChange={handleChange}
-                onBlur={onBlur}
-              />
-              <FormErrorMessage>Obrigatório</FormErrorMessage>
-            </FormControl>
-
-            {error && (
-              <Text color="red.500" mt={2}>
-                {error}
-              </Text>
-            )}
-
-            <Flex justify="flex-end" width="100%">
-              <Button
-                paddingX={12}
-                colorScheme="primary"
-                _hover={{ bg: "orange.500" }}
-                isLoading={isLoading}
-                isDisabled={!values.name || !values.email || !values.subject || !values.message}
-                type="submit"
-              >
-                Enviar
-              </Button>
-            </Flex>
-          </form>
-        </Container>
-      </HStack>
-    </Section>
-  );
-};
+          )}
+  
+          <Flex justify="flex-end" width="100%">
+            <Button
+              paddingX={12}
+              colorScheme="primary"
+              _hover={{ bg: "orange.500" }}
+              isLoading={isLoading}
+              isDisabled={!values.name || !values.email || !values.subject || !values.message}
+              type="submit"
+            >
+              Enviar
+            </Button>
+          </Flex>
+        </form>
+      </Container>
+    </Flex>
+  </Section>
+    );
+  };
 
 export default Contact;
