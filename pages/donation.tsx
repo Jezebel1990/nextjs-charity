@@ -61,7 +61,7 @@ const Donation: NextPage = () => {
 
   return (
     <Section backgroundColor="white" hasDivider={false}>
-         <Box position="absolute" right={"-100px"} top={"-400px"}>
+         <Box position="absolute" right={"-100px"} top={"-400px"} display={{ base: "none", md: "block" }} >
              <Paws />
             </Box>
       <Text fontSize="4xl" fontWeight="bold" color="primary.500" align="center" >
@@ -149,7 +149,7 @@ const Donation: NextPage = () => {
             )}
           </VStack>
         </Container>
-        <Box bottom={"-250px"} left={0} position="absolute">
+        <Box bottom={"-250px"} left={0} position="absolute"  display={{ base: "none", md: "block" }} >
       <Paws />
      </Box>
       </HStack>

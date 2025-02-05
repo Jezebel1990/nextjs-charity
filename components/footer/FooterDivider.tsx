@@ -8,6 +8,7 @@ const FooterDivider: React.FC = () => {
         height: "100px",
         position: "relative",
         width: "100%",
+        marginBottom: "-1",
       }}
       viewBox="0 0 1512 520"
       xmlns="http://www.w3.org/2000/svg"

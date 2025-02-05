@@ -8,7 +8,7 @@ const SectionDivider:React.FC<SectionDividerProps> = (props) => {
     const {backgroundColor = "white"} = props;
 
 return (
- <Box bottom={0} left={0} overflow="hidden" position="absolute" width="100%">
+ <Box bottom="-1" left={0} overflow="hidden" position="absolute" width="100%">
   <svg
         fill={backgroundColor}
         preserveAspectRatio="none"
