@@ -33,9 +33,10 @@ const Donation: NextPage = () => {
     try {
       const response = await axios.post("/api/pix", { amount });
 
-      setQrCode(response.data.qrCode);
-      setPixCode(response.data.qrCode);
-      setShowImage(false); 
+      // Garantindo que `pixCode` receba o código correto e não o link do QR Code
+      setQrCode(response.data.qrCode);  // Link da imagem do QR Code
+      setPixCode(response.data.pixCode); // Código Pix Copia e Cola
+      setShowImage(false);
     } catch (error) {
       console.error("Erro ao gerar Pix:", error);
     }
@@ -43,6 +44,7 @@ const Donation: NextPage = () => {
 
   useEffect(() => {
     if (pixCode) {
+      console.log("Código Pix gerado:", pixCode);
     }
   }, [pixCode]);
 
@@ -61,10 +63,10 @@ const Donation: NextPage = () => {
 
   return (
     <Section backgroundColor="white" hasDivider={false}>
-         <Box position="absolute" right={"-100px"} top={"-400px"} display={{ base: "none", md: "block" }} >
-             <Paws />
-            </Box>
-      <Text fontSize="4xl" fontWeight="bold" color="primary.500" align="center" >
+      <Box position="absolute" right={"-100px"} top={"-400px"} display={{ base: "none", md: "block" }} >
+        <Paws />
+      </Box>
+      <Text fontSize="4xl" fontWeight="bold" color="primary.500" align="center">
         Faça uma Doação ❤️
       </Text>
   
@@ -77,12 +79,12 @@ const Donation: NextPage = () => {
               </Button>
             ))}
 
-            <Text fontSize="xl" fontWeight="bold" >Deseja outro valor?</Text>
+            <Text fontSize="xl" fontWeight="bold">Deseja outro valor?</Text>
             <HStack width="180px">
               <Input
                 placeholder="R$ 00,00"
                 type="text"
-                variant='filled'
+                variant="filled"
                 textAlign="center"
                 value={amount ? formatCurrency(amount) : ""}
                 onChange={(e) => {
@@ -131,7 +133,7 @@ const Donation: NextPage = () => {
                     </Text>
 
                     <InputGroup>
-                      <Input size="lg" value={pixCode} isReadOnly  variant='filled' />
+                      <Input size="lg" value={pixCode} isReadOnly variant="filled" />
                       <InputRightElement width="4.5rem">
                         <IconButton
                           aria-label="Copiar Código Pix"
@@ -149,9 +151,10 @@ const Donation: NextPage = () => {
             )}
           </VStack>
         </Container>
-        <Box bottom={"-250px"} left={0} position="absolute"  display={{ base: "none", md: "block" }} >
-      <Paws />
-     </Box>
+        
+        <Box bottom={"-250px"} left={0} position="absolute" display={{ base: "none", md: "block" }}>
+          <Paws />
+        </Box>
       </HStack>
     </Section>
   );

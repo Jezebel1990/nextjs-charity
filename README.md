@@ -4,6 +4,10 @@ Este projeto é uma aplicação web dedicada à causa dos animais abandonados, p
 
 ![Página Inicial](public/img/screencapture-caosemdono.png)
 
+## Requisitos
+- **Node.js**: v20.18.0
+- **Next.js**: 15.1.4
+
 ## Tecnologias Utilizadas
 
 - **React**: Para construção da interface de usuário.
